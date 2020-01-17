@@ -44,7 +44,8 @@ SSH key will be decrypted and added to your ssh-agent for you.
 
 (2) Install the script to a well-known location (You can modify `/usr/lib`)
 
-    sudo cp systemd-user-pam-ssh /usr/lib/systemd/systemd-user-pam-ssh
+    sudo curl -o /usr/lib/systemd/systemd-user-pam-ssh \
+    https://raw.githubusercontent.com/capocasa/systemd-user-pam-ssh/master/systemd-user-pam-ssh
 
 (3) Configure pam
 
@@ -69,7 +70,7 @@ SSH key will be decrypted and added to your ssh-agent for you.
     read -s PASSWORD
     # type your system password
 
-    read -S PASSPHRASE
+    read -s PASSPHRASE
     # type your passphrase
 
     echo $PASSPHRASE | openssl enc -pbkdf2 -in - -out ~/.ssh/passphrase -e -aes256 -k "$PASSWORD"
