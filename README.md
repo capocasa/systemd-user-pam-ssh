@@ -47,6 +47,8 @@ SSH key will be decrypted and added to your ssh-agent for you.
     sudo curl -o /usr/lib/systemd/systemd-user-pam-ssh \
     https://raw.githubusercontent.com/capocasa/systemd-user-pam-ssh/master/systemd-user-pam-ssh
 
+    chmod +x /usr/lib/systemd/systemd-user-pam-ssh
+
 (3) Configure pam
 
     echo "auth  optional  pam_exec.so  expose_authtok /usr/lib/systemd/systemd-user-pam-ssh" \
